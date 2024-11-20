@@ -7,7 +7,7 @@ const port = 3001; // porta da api (comunicacao entre offices)
 const SECRET_KEY = '17821h12871h2';//key
 const mongoUrl = 'mongodb://localhost:27017/kittydatabase';// endereço da bd +  nome 
 
-app.use(express.json());// trasnformar as requests em json
+app.use(express.json());// transformar as requests em json
 
 // Connect to MongoDB -  vi na config da mongodb
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -61,7 +61,7 @@ app.post('/login', async (req, res) => {//async pq vou usar await -  porem podia
   }
 });
 
-// Middleware to verify JWT
+// verifica se és mesmo tu pela chave/token
 const verifyToken = (req, res, next) => { //todas as requests passam por aqui(menos as requests não protegidas), analisa a chave, se estiver correta, next
   const authHeader = req.headers['authorization'];//pega a chave (Bearer "key")
   if (!authHeader) {// se n houver chave
