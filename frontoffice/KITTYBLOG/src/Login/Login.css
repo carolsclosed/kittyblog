@@ -1,0 +1,102 @@
+body{
+    background-color: blanchedalmond;
+}
+
+#welcome{
+    color: rgb(75, 65, 67);
+    font-family: Georgia;
+}
+
+#divLogin button{
+    font-style: italic;
+    font-size: medium;
+    display: flex;
+    padding: 20px;
+    width: 300px;
+    margin: 10px;
+    justify-content: center;
+    border-style: hidden;
+    border-radius: 59vh;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+
+#divLogin #login{
+    background-color: rgb(255, 207, 215);
+}
+
+#divLogin #login:hover{
+    background-color: rgb(251, 217, 222);
+    color: rgb(130, 90, 96)
+    ;
+}
+
+#divLogin #register{
+    background-color: rgb(130, 90, 96);
+}
+
+#divLogin #register:hover{
+    background-color: rgb(137, 111, 115);
+}
+
+
+#divLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30vh;
+    padding: 8%;
+}
+
+#boxLogin{
+    background-color: aliceblue;
+    height: 300px;
+    width: 400px;
+    margin-left: 35%;
+    border-radius: 10vh;
+
+}
+
+@media screen and (max-width: 992px) {
+    #boxLogin{
+        margin-left: 30%;
+        margin-right: 60%;
+     }
+ 
+     #divLogin{
+         padding: 10%;
+         height: 220px;
+         border-radius: 10vh;
+
+
+     }
+  }
+
+@media screen and (max-width: 600px) {
+
+    #boxLogin{
+        margin-left: 13%;
+        margin-right: 50%;
+     }
+ 
+     #divLogin{
+         padding: 10%;
+         height: 220px;
+         border-radius: 10vh;
+
+     }
+  }
+
+@media screen and (max-width:400px){
+    #boxLogin{
+       margin-left: 9%;
+    }
+
+    #divLogin{
+        padding: 10%;
+        height: 220px;
+        border-radius: 10vh;
+
+    }
+}
