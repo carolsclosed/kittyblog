@@ -1,3 +1,28 @@
-ul{
-    background-color: rgb(167, 113, 31);
+li{
+    display: inline-flex;
+    padding-right: 10px;
+    
 }
+
+ul{
+    list-style: none;
+}
+#pesquisa{
+    border:none;
+    padding: 10px;
+    padding-left: 300px;
+
+}
+input{
+    border-radius: 10px;
+}
+
+#pesquisa>img{
+    padding-right: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
