@@ -2,8 +2,8 @@ import "./Navbar.css"
 import React from "react"
 function Navbar(){
     return(
-    <>
-        <nav >     
+    <> <div id='navbar'>
+        <nav  >     
             <ul >
                 <li>
                 <h1> KITTYBLOG</h1>
@@ -26,6 +26,7 @@ function Navbar(){
                 
             </ul>
         </nav>
+        </div>
     </>
     )
 }
