@@ -1,27 +1,49 @@
+*{
+    margin: 0px;
+}
 li{
     display: inline-flex;
-    padding-right: 10px;
+    padding: 1.2%;
+    background-color: orange;
+    position:static;
     
+}
+#navbar{
+    width: 100%;
+    align-items: flex-start;
+    background-color: pink;
+    position: fixed;
 }
 
 ul{
     list-style: none;
+    padding:0px;
 }
 #pesquisa{
     border:none;
-    padding: 10px;
-    padding-left: 300px;
+    padding: 5%;
+    display: inline-flex;
+    background-color: blueviolet;
 
 }
 input{
     border-radius: 10px;
+    background-color: black;
+    padding-left: 10%;
 }
 
-#pesquisa>img{
-    padding-right: 5px;
-}
 
+@media only screen and (max-width: 950px) {
+    body {
+      background-color: lightblue;
+    }
+  }
 @media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+@media only screen and (max-width: 400px) {
     body {
       background-color: lightblue;
     }
