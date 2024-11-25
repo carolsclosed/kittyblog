@@ -2,32 +2,35 @@ import "./Navbar.css"
 import React from "react"
 function Navbar(){
     return(
-    <> <div id='navbar'>
-        <nav  >     
-            <ul >
+    
+        <nav>     
+            <ul>
                 <li>
-                <h1> KITTYBLOG</h1>
+                <h1 > KITTYBLOG</h1>
                 </li>
-                <li>
-                    <div id='pesquisa'>
-                        <img  src='.\src\assets\lupa.png' width='20px'></img>
-                        <input  type='text' placeholder="Pesquisa" ></input>
-                    </div>
+
+
+                <li >
+                    <img className="centro" src='.\src\assets\lupa.png' width='20px'></img>       
                 </li>
                 <li >
-                    <p>Home</p>
+                    <input  type='text' placeholder="Pesquisa" ></input>
                 </li>
-                <li >
-                    <p>Meu Perfil</p>
+
+
+                <li className="direita">
+                    <p  >Home</p>
                 </li>
-                <li>
-                    <p>Feed</p>
+                <li className="direita">
+                    <p >Meu Perfil</p>
                 </li>
-                
-            </ul>
+                <li className="direita">
+                    <p > Feed</p>
+                </li>
+            </ul>   
+            
         </nav>
-        </div>
-    </>
+        
     )
 }
 
