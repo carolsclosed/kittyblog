@@ -8,7 +8,7 @@ function SignIn({ toggle }) {
             <form className="form">
                 <div className="boxSignIn">
                     <div className="divSignIn">
-                        <h1 className="TEXT">Sign In</h1>
+                        <h1 className="TEXT">Register</h1>
                         <input className="user" type="text" placeholder="Username" />
                         <input className="pass" type="text" placeholder="Passoword" />
                     </div>
