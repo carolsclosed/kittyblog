@@ -1,35 +1,36 @@
 *{
     margin: 0px;
 }
-li{
-    display: inline-flex;
-    padding: 1.2%;
-    background-color: orange;
-    position:static;
-    
-}
-#navbar{
-    width: 100%;
-    align-items: flex-start;
-    background-color: pink;
-    position: fixed;
-}
 
 ul{
-    list-style: none;
-    padding:0px;
+  list-style-type: none;
+  margin: 0;
+  margin-top:2%;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ffffff;
 }
-#pesquisa{
-    border:none;
-    padding: 5%;
-    display: inline-flex;
-    background-color: blueviolet;
 
+li h1 p img input {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
-input{
-    border-radius: 10px;
-    background-color: black;
-    padding-left: 10%;
+li {
+  float: left;
+}
+
+.direita{
+  float:right;
+  padding-right: 2%;
+}
+.centro{
+  margin:0% 5% 0% 10%;
+  padding: 0% 5% 0% 10%;
+  border:0% 5% 0% 10%;
+ 
 }
 
 
