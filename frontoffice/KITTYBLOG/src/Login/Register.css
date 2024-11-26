@@ -1,4 +1,4 @@
-.form2{
+.form1{
     position: fixed;
     display: block;
     min-width: 250px;
@@ -13,7 +13,7 @@
     border: 2px solid rgb(126, 69, 40);
 }
 
-.boxSignIn{
+.boxlogon{
    display: block;
    position: relative;
    margin-top: 80px ;
@@ -28,20 +28,20 @@
     margin: 12px;
 }
 
-.divSignIn button{
+
+.divlogon button{
     display:block;
     margin: 20px;
 }
 
-.buttons2{
+.buttons{
     display:flex;
     margin-left: 10vw;
     margin-right: 10vw;
-    
 
 }
 
-#cancel2{
+#cancel1{
     margin:auto;
     padding: 10px;
     border: none;
@@ -51,14 +51,13 @@
     font-style: italic;
 }
 
-#cancel2:hover{
+#cancel1:hover{
     cursor:pointer;
     background-color: rgb(173, 127, 89);
     font-family:Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;
-}
+    font-style: italic;}
 
-#submit2{
+#submit1{
     margin:auto;
     padding: 10px;
     border: none;
@@ -68,7 +67,7 @@
     font-style: italic;
 }
 
-#submit2:hover{
+#submit1:hover{
     cursor:pointer;
     background-color: rgb(173, 127, 89);
     font-family:Georgia, 'Times New Roman', Times, serif;
