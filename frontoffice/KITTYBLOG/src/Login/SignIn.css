@@ -2,10 +2,10 @@
     position: fixed;
     display: block;
     min-width: 250px;
-    min-height: 200px;
-    width: 35vw;
-    height: 40vh;
-    left: 33%;
+    min-height: 250px;
+    width: 25vw;
+    height: 35vh;
+    left: 38%;
     top: 25%;
     border-radius:10vh;
     text-align: center;
@@ -35,8 +35,8 @@
 
 .buttons2{
     display:flex;
-    margin-left: 10vw;
-    margin-right: 10vw;
+    margin-left: 8vw;
+    margin-right: 8vw;
     
 
 }

@@ -13,12 +13,12 @@ body{
     position: fixed;
     display: block;
     text-align: center;
-    left: 33%;
+    left: 38%;
     top: 25%;
     min-width: 250px;
     min-height: 200px;
-    width: 35vw;
-    height: 40vh;
+    width: 25vw;
+    height: 35vh;
     background-color: rgb(255, 233, 210);
     border-radius: 10vh;
 
@@ -27,7 +27,7 @@ body{
 
 
 .divLogin{
-    margin-top: 10vh;
+    margin-top: 9vh;
     display: block;
 
     position: relative;
@@ -82,7 +82,7 @@ body{
     margin: 4%;
     color:  rgb(108, 57, 31);
     margin-left: 10%;
-    background-color: rgb(251, 188, 161);
+    background-color: rgb(216, 168, 147);
     
    
 }
@@ -91,7 +91,7 @@ body{
 #register:hover{
     font-family: Georgia, 'Times New Roman', Times, serif;
     cursor:pointer;
-    background-color: rgb(255, 160, 119);
+    background-color: rgb(189, 147, 130);
     text-decoration: underline;
 
 }
