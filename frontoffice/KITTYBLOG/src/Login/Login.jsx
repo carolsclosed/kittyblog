@@ -17,20 +17,21 @@ export default function Login({toggle}){
 
 return(
     <>
-    <div id="boxLogin">
-            <div id="divLogin">
-            <h1 id="welcome">KittyBlog</h1>
-            
-            <button id="login" onClick={()=>togglePop("login")}>Login</button >
+   
+        <div className="boxLogin">
+            <div className="divLogin">
+                <h1 className="welcome">KittyBlog</h1>
+                
+                <button id="login" type="button" onClick={()=>togglePop("login")} >Login</button >
+        
+                {logSig==="login" &&  <Logon  toggle = {()=>togglePop("login")} />}
 
-            {logSig==="login" &&  <Logon  toggle = {()=>setLogSig(null)} />}
-
-            <button id="register" onClick={()=>togglePop("register")}>Register</button>
-       
-            {logSig==="register" &&  <SignIn  toggle = {()=>setLogSig(null)} />}    
+                <button id="register" type="button" onClick={()=>togglePop("register")} >Register</button>
+        
+                {logSig==="register" &&  <SignIn  toggle = {()=>togglePop("register")} />}   
+            </div> 
 
         </div>
-    </div>
     </>
 )
 }
