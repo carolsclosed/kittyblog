@@ -1,5 +1,5 @@
 body{
-    background-image: url("./src/assets/fundo.png");
+   background-image: url("./src/assets/fundo.png");
     background-size: cover;
     position: fixed;
     background-repeat: no-repeat;
@@ -15,7 +15,7 @@ body{
     display: block;
     text-align: center;
     left: 33%;
-    top: 30%;
+    top: 25%;
     min-width: 250px;
     min-height: 200px;
     width: 35vw;
@@ -28,9 +28,13 @@ body{
 
 
 .divLogin{
-    margin-top: 15%;
+    margin-top: 10vh;
     display: block;
+
     position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+
 }
 
 
@@ -41,7 +45,7 @@ body{
     font-weight: 400;
     font-size: 45px;
     color:  rgb(108, 57, 31);
-
+    padding: 2%;
 }
 
 
@@ -63,17 +67,9 @@ body{
 
 #login:hover{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    border: none;
-    font-style: italic;
-    border-radius:15px ;
-    text-align: center;
-    font-size:medium;
-    padding: 25px;
-    position: relative;
-    margin-left: 5%;
-    color:  rgb(108, 57, 31);
-
-    background-color: rgb(252, 191, 129);
+    cursor:pointer;
+    background-color: rgb(255, 190, 137);
+    text-decoration: underline;
 }
 
 
@@ -81,13 +77,14 @@ body{
     font-style: italic;
     font-family: Georgia, 'Times New Roman', Times, serif;
     border: none;
+    
     font-size:medium;
     border-radius:15px ;
     text-align: center;
     padding: 25px;
     margin: 4%;
     color:  rgb(108, 57, 31);
-
+    margin-left: 10%;
     background-color: rgb(251, 188, 161);
     
    
@@ -96,16 +93,11 @@ body{
 
 #register:hover{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    border: none;
-    font-size:medium;
-    font-style: italic;
-    border-radius:15px ;
-    text-align: center;
-    padding: 25px;
-    color:  rgb(108, 57, 31);
+    cursor:pointer;
+    background-color: rgb(255, 160, 119);
+    text-decoration: underline;
 
-    margin: 4%;
-    background-color: rgb(250, 166, 141);
-   
 }
 
+
+ 
