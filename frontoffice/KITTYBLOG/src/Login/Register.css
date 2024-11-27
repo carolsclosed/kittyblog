@@ -20,6 +20,36 @@
 
 }
 
+.FotoPerfil{
+    display: flex;
+    margin:auto;
+    padding: 7px;
+    border: none;
+    border-radius: 20%;
+    background-color: rgb(151, 105, 67);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    width: 44px;
+    max-width: 44px;
+    
+}
+
+.FotoPerfil:hover{
+    cursor:pointer;
+    background-color: rgb(173, 127, 89);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+#foto{
+    opacity: 0%;
+   
+}
+#foto:hover{
+    opacity: 0%;
+    cursor: pointer;
+}
+
 .TEXT{
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
