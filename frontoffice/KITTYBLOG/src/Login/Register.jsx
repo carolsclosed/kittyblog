@@ -30,6 +30,7 @@ function Register({ toggle }) {
                         <div className="buttons">
                             <button id="cancel1">Cancel</button>
                             <button id="submit1" type="submit" onClick={stay}>Submit</button>
+                            
                         </div>                  
                    </div>
                 </div>
