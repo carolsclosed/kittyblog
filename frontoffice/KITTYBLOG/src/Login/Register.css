@@ -21,34 +21,32 @@
 
 }
 
-.FotoPerfil{
-    display: flex;
-    margin:auto;
-    padding: 7px;
+
+
+
+input[type=file]{ 
+    color:transparent;
+    
+}
+
+
+
+input::file-selector-button {
+    padding: 10px;
+    width: 150px;
+    margin-top: 1%;
     border: none;
     border-radius: 20%;
     background-color: rgb(151, 105, 67);
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
-    width: 44px;
-    max-width: 44px;
     
-}
+  }
 
-.FotoPerfil:hover{
-    cursor:pointer;
-    background-color: rgb(173, 127, 89);
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;
-}
-
-#foto{
-    opacity: 0%;
-   
-}
-#foto:hover{
-    opacity: 0%;
-    cursor: pointer;
+.file{
+    margin-right: -50px; 
+    background-color:transparent;
+    
 }
 
 .TEXT{
@@ -70,6 +68,7 @@
     display:flex;
     margin-left: 8vw;
     margin-right: 8vw;
+    
 
 }
 
@@ -81,6 +80,7 @@
     background-color: rgb(151, 105, 67);
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
+  
 }
 
 #cancel1:hover{
@@ -97,6 +97,7 @@
     background-color: rgb(151, 105, 67);
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
+    margin-left: 5px;
 }
 
 #submit1:hover{
@@ -125,4 +126,25 @@
     position: relative;
     display: inline-block;
     
+}
+
+
+@media screen and (max-width: 600px) {
+    .form1{
+        height: 42vh;
+    }
+
+   .file{
+        margin-left: 10vw;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .form1{
+        height: 42vh;
+    }
+
+   .file{
+        margin-left: 7vw;
+    }
 }

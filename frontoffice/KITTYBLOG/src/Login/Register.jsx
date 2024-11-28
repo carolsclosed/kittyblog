@@ -30,12 +30,15 @@ function Register({ toggle }) {
                         <div className="buttons">
                             <button id="cancel1">Cancel</button>
                             <button id="submit1" type="submit" onClick={stay}>Submit</button>
-                            <div className="FotoPerfil">
-                                <label htmlFor="file">FOTO</label>
-                            <input id="foto" type="file" name="file"></input>
+                            
+                
+                            
                             {/*fazer js para detetar cancelamento de upload*/}
-                            </div>
-                        </div>                  
+                            
+                        </div>     
+                        <div className="file">      
+                        <input type="file" name="file"></input>
+                        </div>       
                    </div>
                 </div>
             </form>

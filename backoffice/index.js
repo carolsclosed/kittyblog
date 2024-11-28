@@ -16,14 +16,12 @@ mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Modelos da base de daos (tabelas)
 const UserSchema = new mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId, // primary key do user
   username: String,
   password: String,
   imagemPerfil: String,
 });
 
 const PostSchema = new mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId, // primary key do post
   userId: mongoose.Schema.Types.ObjectId, // "foreign key do user" 
   username: String,
   content: String,
