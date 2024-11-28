@@ -3,10 +3,11 @@
     display: block;
     min-width: 250px;
     min-height: 250px;
-    width: 25vw;
-    height: 35vh;
+    width: 30vw;
+    height: 40vh;
     left: 38%;
     top: 25%;
+    margin-left: -15px;
     border-radius:10vh;
     text-align: center;
     background-color: rgb(255, 233, 210);
