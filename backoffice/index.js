@@ -1,19 +1,25 @@
 const express = require('express');//biblioteca necessaria para ajudar na cracao de api's
+const cors = require('cors');
 const jwt = require('jsonwebtoken');// biblioteca PARA criar jwt (chave)
 const mongoose = require('mongoose'); // biblioteca para conectar a base de dados
 
 const app = express();//iniciar biblioteca da api
 const port = 3001; // porta da api (comunicacao entre offices)
 const SECRET_KEY = '17821h12871h2';//key
-const mongoUrl = 'mongodb://localhost:27017/kittydatabase';// endereço da bd +  nome 
+
 
 app.use(express.json());// transformar as requests em json
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 // Connect to MongoDB -  vi na config da mongodb
-mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Connected to MongoDB"))
-  .catch(error => console.error('Error connecting to MongoDB:', error));
-
+mongoose.connect('mongodb://localhost:27017/kittydatabase', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }).then(() => {
+      console.log('Conectado ao MongoDB');
+    }).catch((err) => {
+      console.error('Erro ao conectar ao MongoDB', err);
+    });
 // Modelos da base de daos (tabelas)
 const UserSchema = new mongoose.Schema({
   username: String,

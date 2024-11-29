@@ -2,27 +2,48 @@ import React, { useState } from "react";
 import "./Register.css"
 function Register({ toggle }) {
 
-    const [inputValue,setInputValue] = useState("")
+    const [inputValue, setInputValue] = useState("")
 
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
-          e.preventDefault(); 
-          console.log("Enter key pressed: ", inputValue);
-          // depois colocar para enviar para a bd
-        }
-      };
-
-      const stay = (e) => {
-          e.preventDefault(); 
-          console.log("Submit button pressed: ", inputValue);
-          // depois colocar para enviar para a bd
-        }
-      
-        const FileOpen = (e) =>{
             e.preventDefault();
-            document.getElementById("file").click();
-            
+            console.log("Enter key pressed: ", inputValue);
+            // depois colocar para enviar para a bd
         }
+    };
+
+    const Submit = async (e) => {
+        e.preventDefault();
+    
+        const username = document.getElementById('user').value;
+        const password = document.getElementById('pass').value;
+       /* mostrar na consola data inserida */
+        console.log("butão submit pressionado: ", { username, password });
+    
+        try {
+            const response = await fetch("http://localhost:3001/register", {
+                method: 'POST',
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            });
+    
+        } catch (error) {
+            console.error("Erro no fetch: ", error);
+        }
+    };
+    
+
+    
+    const FileOpen = (e) => {
+        e.preventDefault();
+        document.getElementById("file").click();
+
+    }
+
+
+
 
     return (
         <>
@@ -30,21 +51,22 @@ function Register({ toggle }) {
                 <div className="boxlogon">
                     <div className="divlogon">
                         <h1 className="TEXT">Register</h1>
-                        <input className="user" type="text" onKeyDown={handleKeyDown} placeholder="Username" />
-                        <input className="pass" type="text" onKeyDown={handleKeyDown} placeholder="Passoword" />
+                        <input className="user" id="user" type="text" onKeyDown={handleKeyDown} placeholder="Username" />
+                        <input className="pass" id="pass" type="text" onKeyDown={handleKeyDown} placeholder="Passoword" />
                         <div className="buttons">
                             <button id="cancel1">Cancel</button>
-                            <button id="submit1" type="submit" onClick={stay}>Submit</button>
+                            <button id="submit1" type="submit" onClick={Submit}>Submit</button>
                             {/*fazer js para detetar cancelamento de upload*/}
                             <button id="files" onClick={FileOpen}>Imagem de Perfil</button>
-                           
-                        </div>    
-                   </div>
+
+                        </div>
+                    </div>
                 </div>
-                <input type="file" name="file" id="file"></input>     
+                <input type="file" name="file" id="file"></input>
             </form>
         </>
     )
-}
+};
+
 
 export default Register
