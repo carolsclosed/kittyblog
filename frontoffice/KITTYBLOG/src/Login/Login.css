@@ -1,7 +1,7 @@
 body{
-   background-image: url("./src/assets/fundo.png");
+   background-image: url("./src/assets/punsheen.png");
     background-size: cover;
-    position: fixed;
+
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -14,8 +14,8 @@ body{
     display: block;
     text-align: center;
     left: 38%;
-    margin-left: -15px;
-    top: 30%;
+    margin-left: -3vw;
+    top: 20%;
     min-width: 250px;
     min-height: 275px;
     width: 30vw;
