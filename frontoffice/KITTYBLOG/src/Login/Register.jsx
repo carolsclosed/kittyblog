@@ -3,6 +3,9 @@ import "./Register.css"
 function Register({ toggle }) {
 
     const [inputValue, setInputValue] = useState("")
+    const [userName, setUsername] = useState("")
+    const [passWord, setPassword] = useState("")
+    const [imgPerfil, setImgPerfil] = useState("")
 
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
@@ -13,19 +16,20 @@ function Register({ toggle }) {
     };
 
     const Submit = async (e) => {
-        e.preventDefault();
-    
-        const username = document.getElementById('user').value;
-        const password = document.getElementById('pass').value;
+        e.preventDefault()
        /* mostrar na consola data inserida */
-        console.log("butão submit pressionado: ", { username, password });
+        console.log("butão submit pressionado: ", { userName, passWord, imgPerfil });
     
         try {
             const response = await fetch("http://localhost:3001/register", {
                 method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify({
-                    username: username,
-                    password: password
+                    username: userName,
+                    password: passWord,
+                    imagemPerfil: ""
                 })
             });
     
@@ -51,8 +55,8 @@ function Register({ toggle }) {
                 <div className="boxlogon">
                     <div className="divlogon">
                         <h1 className="TEXT">Register</h1>
-                        <input className="user" id="user" type="text" onKeyDown={handleKeyDown} placeholder="Username" />
-                        <input className="pass" id="pass" type="text" onKeyDown={handleKeyDown} placeholder="Passoword" />
+                        <input className="user" value={userName} onChange={(e)=>setUsername(e.target.value)} type="text" onKeyDown={handleKeyDown} placeholder="Username" />
+                        <input className="pass" value={passWord} onChange={(e)=>setPassword(e.target.value)} type="text" onKeyDown={handleKeyDown} placeholder="Passoword" />
                         <button id="files" onClick={FileOpen}>Imagem de Perfil</button>
                         <div className="buttons">
                            
