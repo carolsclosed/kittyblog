@@ -2,11 +2,11 @@
     position: fixed;
     display: block;
     min-width: 250px;
-    min-height: 250px;
+    min-height: 260px;
     width: 30vw;
-    height: 40vh;
+    max-height: 260px;
     left: 38%;
-    top: 25%;
+    top: 30%;
     margin-left: -15px;
     border-radius:10vh;
     text-align: center;
