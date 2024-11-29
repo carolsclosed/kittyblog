@@ -18,6 +18,11 @@ function Register({ toggle }) {
           // depois colocar para enviar para a bd
         }
       
+        const FileOpen = (e) =>{
+            e.preventDefault();
+            document.getElementById("file").click();
+            
+        }
 
     return (
         <>
@@ -30,17 +35,13 @@ function Register({ toggle }) {
                         <div className="buttons">
                             <button id="cancel1">Cancel</button>
                             <button id="submit1" type="submit" onClick={stay}>Submit</button>
-                            
-                
-                            
                             {/*fazer js para detetar cancelamento de upload*/}
-                            
-                        </div>     
-                        <div className="file">      
-                        <input type="file" name="file"></input>
-                        </div>       
+                            <button id="files" onClick={FileOpen}>Imagem de Perfil</button>
+                           
+                        </div>    
                    </div>
                 </div>
+                <input type="file" name="file" id="file"></input>     
             </form>
         </>
     )

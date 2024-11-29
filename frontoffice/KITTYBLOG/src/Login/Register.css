@@ -2,7 +2,7 @@
     position: fixed;
     display: block;
     min-width: 250px;
-    min-height: 260px;
+    min-height: 275px;
     max-height: 260px;
     width: 30vw;
  
@@ -33,22 +33,10 @@ input[type=file]{
 
 
 input::file-selector-button {
-    padding: 10px;
-    width: 150px;
-    margin-top: 1%;
-    border: none;
-    border-radius: 20%;
-    background-color: rgb(151, 105, 67);
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;
-    
+    visibility: hidden;    
   }
 
-.file{
-    margin-right: -10px; 
-    background-color:transparent;
-    
-}
+
 
 .TEXT{
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -59,24 +47,34 @@ input::file-selector-button {
     margin: 12px;
 }
 
-
-.divlogon button{
-    display:block;
-    margin: 20px;
+.buttons{
+    padding: 4px;
 }
 
-.buttons{
-    display:flex;
-    margin-left: 8vw;
-    margin-right: 8vw;
-    
+#files{
+    border: none;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 20%;
+    background-color: rgb(151, 105, 67);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    position: relative;
+}
 
+#files:hover{
+    cursor:pointer;
+    background-color: rgb(173, 127, 89);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-decoration: underline;
 }
 
 #cancel1{
-    margin:auto;
+    margin: 5px;
     padding: 10px;
     border: none;
+    position: relative;
     border-radius: 20%;
     background-color: rgb(151, 105, 67);
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -88,17 +86,18 @@ input::file-selector-button {
     cursor:pointer;
     background-color: rgb(173, 127, 89);
     font-family:Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;}
+    font-style: italic;
+    text-decoration: underline;
+}
 
 #submit1{
-    margin:auto;
     padding: 10px;
     border: none;
     border-radius: 20%;
     background-color: rgb(151, 105, 67);
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
-    margin-left: 5px;
+    position: relative;
 }
 
 #submit1:hover{
@@ -106,6 +105,8 @@ input::file-selector-button {
     background-color: rgb(173, 127, 89);
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
+    text-decoration: underline;
+
 }
 
 .user{
@@ -129,23 +130,3 @@ input::file-selector-button {
     
 }
 
-
-@media screen and (max-width: 600px) {
-    .form1{
-        height: 42vh;
-    }
-
-   .file{
-        margin-left: 10vw;
-    }
-}
-
-@media screen and (min-width: 600px) {
-    .form1{
-        height: 42vh;
-    }
-
-   .file{
-        margin-left: 7vw;
-    }
-}
