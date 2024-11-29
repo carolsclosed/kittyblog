@@ -53,11 +53,14 @@ function Register({ toggle }) {
                         <h1 className="TEXT">Register</h1>
                         <input className="user" id="user" type="text" onKeyDown={handleKeyDown} placeholder="Username" />
                         <input className="pass" id="pass" type="text" onKeyDown={handleKeyDown} placeholder="Passoword" />
+                        <button id="files" onClick={FileOpen}>Imagem de Perfil</button>
                         <div className="buttons">
-                            <button id="cancel1">Cancel</button>
+                           
                             <button id="submit1" type="submit" onClick={Submit}>Submit</button>
+                            <button id="cancel1">Cancel</button>
+                           
                             {/*fazer js para detetar cancelamento de upload*/}
-                            <button id="files" onClick={FileOpen}>Imagem de Perfil</button>
+                            
 
                         </div>
                     </div>

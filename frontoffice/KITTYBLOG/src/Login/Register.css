@@ -3,6 +3,7 @@
     display: block;
     min-width: 250px;
     min-height: 275px;
+    max-height: 275px;
     
     width: 30vw;
  
@@ -53,22 +54,21 @@ input::file-selector-button {
 
 #files{
     border: none;
-    margin: 5px;
+    border-radius:10px ;
+    text-align: center;
     padding: 10px;
-    border-radius: 20%;
-    background-color: rgb(151, 105, 67);
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;
+    margin: 5px;
     position: relative;
+    background-color: white;
+    color: grey;
+    width: 180px;
+    cursor: pointer;
 }
 
-#files:hover{
-    cursor:pointer;
-    background-color: rgb(173, 127, 89);
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;
-    text-decoration: underline;
+#files:hover , .user:hover , .pass:hover{
+    background-color: rgb(239, 239, 239);
 }
+
 
 #cancel1{
     margin: 5px;
