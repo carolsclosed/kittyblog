@@ -9,7 +9,7 @@ const SECRET_KEY = '17821h12871h2';//key
 
 
 app.use(express.json());// transformar as requests em json
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ "origin": '*' }));
 
 // Connect to MongoDB -  vi na config da mongodb
 mongoose.connect('mongodb://localhost:27017/kittydatabase', {
@@ -44,7 +44,7 @@ app.post('/register', async (req, res) => { //async pq vou usar await -  porem p
   const existingUser = await User.findOne({ username });//pra ver se tem igual
 
   if (existingUser) {
-    return res.status(400).json({ error: 'Username already exists' });
+    return res.json({ error: 'Username already exists' });
   }
 
   const newUser = new User({ username, password, imagemPerfil});

@@ -7,6 +7,8 @@ function Register({ toggle }) {
     const [passWord, setPassword] = useState("")
     const [imgPerfil, setImgPerfil] = useState("")
 
+    const [base64String, setBase64String] = useState('');
+
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             e.preventDefault();
@@ -17,11 +19,13 @@ function Register({ toggle }) {
 
     const Submit = async (e) => {
         e.preventDefault()
-       /* mostrar na consola data inserida */
-        console.log("butão submit pressionado: ", { userName, passWord, imgPerfil });
+       /* mostrar na consola DADOS inserida */
+        console.log("butão submit pressionado: ", { userName, passWord, base64String });
     
         try {
+
             const response = await fetch("http://localhost:3001/register", {
+                
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -29,21 +33,38 @@ function Register({ toggle }) {
                 body: JSON.stringify({
                     username: userName,
                     password: passWord,
-                    imagemPerfil: ""
+                    imagemPerfil: base64String
                 })
+                
             });
-    
+  
         } catch (error) {
             console.error("Erro no fetch: ", error);
         }
     };
+
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0]; 
+    if (file) {
+        console.log("OLAAAAAAAAAAAAAA");
+          convertToBase64(file);
+    }
+  };
     
+   const convertToBase64 = (file) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setBase64String(reader.result);
+    };
+
+    reader.readAsDataURL(file);
+  };
 
     
     const FileOpen = (e) => {
         e.preventDefault();
         document.getElementById("file").click();
-
     }
 
 
@@ -57,19 +78,19 @@ function Register({ toggle }) {
                         <h1 className="TEXT">Register</h1>
                         <input className="user" value={userName} onChange={(e)=>setUsername(e.target.value)} type="text" onKeyDown={handleKeyDown} placeholder="Username" />
                         <input className="pass" value={passWord} onChange={(e)=>setPassword(e.target.value)} type="text" onKeyDown={handleKeyDown} placeholder="Passoword" />
-                        <button id="files" onClick={FileOpen}>Imagem de Perfil</button>
+                        <button id="files" value={imgPerfil} onClick={FileOpen} >Imagem de Perfil</button>
+                       
                         <div className="buttons">
-                           
                             <button id="submit1" type="submit" onClick={Submit}>Submit</button>
                             <button id="cancel1">Cancel</button>
                            
-                            {/*fazer js para detetar cancelamento de upload*/}
+                            {/*fazer js para detetar o cancelamento de upload*/}
                             
 
                         </div>
                     </div>
                 </div>
-                <input type="file" name="file" id="file"></input>
+                <input type="file" name="file" id="file" onChange={ handleFileChange}></input>
             </form>
         </>
     )
