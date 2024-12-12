@@ -8,8 +8,9 @@ const port = 3001; // porta da api (comunicacao entre offices)
 const SECRET_KEY = '17821h12871h2';//key
 
 
-app.use(express.json());// transformar as requests em json
-app.use(cors({ "origin": '*' }));
+app.use(cors({ "origin": '*', "Access-Control-Allow-Origin": "*" }));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 // Connect to MongoDB -  vi na config da mongodb
 mongoose.connect('mongodb://localhost:27017/kittydatabase', {
@@ -44,7 +45,7 @@ app.post('/register', async (req, res) => { //async pq vou usar await -  porem p
   const existingUser = await User.findOne({ username });//pra ver se tem igual
 
   if (existingUser) {
-    return res.json({ error: 'Username already exists' });
+    return res.status(409).json({ error: 'Username already exists' });
   }
 
   const newUser = new User({ username, password, imagemPerfil});

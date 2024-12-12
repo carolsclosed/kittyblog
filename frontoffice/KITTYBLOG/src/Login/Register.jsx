@@ -47,7 +47,6 @@ function Register({ toggle }) {
   const handleFileChange = (event) => {
     const file = event.target.files[0]; 
     if (file) {
-        console.log("OLAAAAAAAAAAAAAA");
           convertToBase64(file);
     }
   };
@@ -77,7 +76,7 @@ function Register({ toggle }) {
                     <div className="divlogon">
                         <h1 className="TEXT">Register</h1>
                         <input className="user" value={userName} onChange={(e)=>setUsername(e.target.value)} type="text" onKeyDown={handleKeyDown} placeholder="Username" />
-                        <input className="pass" value={passWord} onChange={(e)=>setPassword(e.target.value)} type="text" onKeyDown={handleKeyDown} placeholder="Passoword" />
+                        <input className="pass" value={passWord} onChange={(e)=>setPassword(e.target.value)} type="text" onKeyDown={handleKeyDown} placeholder="Password" />
                         <button id="files" value={imgPerfil} onClick={FileOpen} >Imagem de Perfil</button>
                        
                         <div className="buttons">
