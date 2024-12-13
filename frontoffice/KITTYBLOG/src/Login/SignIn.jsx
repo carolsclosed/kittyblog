@@ -1,12 +1,13 @@
 
 import React, { useState } from "react";
-
 import "./SignIn.css"
+import Feed from "../feed/Feed";
 function SignIn({ toggle }) {
 
-  
+
     const [inputValue, setInputValue] = useState("")
     const [userName, setUsername] = useState("")
+    const [view, setView] = useState("login");
     const [passWord, setPassword] = useState("")
 
     function handleKeyDown(e) {
@@ -36,28 +37,45 @@ function SignIn({ toggle }) {
                 })
                 
             });
-  
+            if(response.statusText==="Unauthorized"){
+                alert("Utilizador ou senha inválidos")
+            }
+
+            if(response.statusText=="OK"){
+                window.location.href = "/feed";
+                setView("feed");
+                if(view === "feed"){
+                    
+                }
+            }
+
         } catch (error) {
             console.error("Erro no fetch: ", error);
         }
     };
 
     return (
-        <>
-            <form className="form2">
-                <div className="boxSignIn">
-                    <div className="divSignIn">
-                        <h1 className="TEXT">Login</h1>
-                        <input className="user"value={userName} onChange={(e)=>setUsername(e.target.value)} type="text" onKeyDown={handleKeyDown} placeholder="Username" />
-                        <input className="pass" value={passWord} onChange={(e)=>setPassword(e.target.value)}  type="text" onKeyDown={handleKeyDown} placeholder="Password" />
-                        <div className="buttons2">
-                            <button id="cancel2">Cancel</button>
-                            <button id="submit2" type="submit" onClick={Submit}>Submit</button>
-                        </div>   
+            <>
+       
+       
+          <body className="bodyS">
+                <form className="form2">
+                    <div className="boxSignIn">
+                        <div className="divSignIn">
+                            <h1 className="TEXT">Login</h1>
+                            <input className="user"value={userName} onChange={(e)=>setUsername(e.target.value)} type="text" onKeyDown={handleKeyDown} placeholder="Username" />
+                            <input className="pass" value={passWord} onChange={(e)=>setPassword(e.target.value)}  type="text" onKeyDown={handleKeyDown} placeholder="Password" />
+                            <div className="buttons2">
+                                <button id="cancel2">Cancel</button>
+                                <button id="submit2" type="submit" onClick={Submit}>Submit</button>
+                            </div>   
+                        </div>
                     </div>
-                </div>
-            </form>
-        </>
+                </form>   
+                  
+                </body>
+        
+         </>
     )
 }
 

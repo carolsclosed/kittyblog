@@ -6,6 +6,7 @@ function Register({ toggle }) {
     const [userName, setUsername] = useState("")
     const [passWord, setPassword] = useState("")
     const [imgPerfil, setImgPerfil] = useState("")
+    const [view, setView] = useState("Register")
 
     const [base64String, setBase64String] = useState('');
 
@@ -37,9 +38,19 @@ function Register({ toggle }) {
                 })
                 
             });
-  
+            if(response.statusText === "OK"){
+                alert("Registo feito com sucesso!")
+                window.location.href = "/feed";
+                setView("feed");
+            }else if(response.statusText === "Conflict"){
+                alert("Já existe um utilizador com este nome")
+            }else{
+                alert("Erro ao fazer o registo")
+            }
+            
         } catch (error) {
             console.error("Erro no fetch: ", error);
+            
         }
     };
 
@@ -71,6 +82,11 @@ function Register({ toggle }) {
 
     return (
         <>
+        { view === "feed" ? (
+                    <Feed /> // Renderiza o componente Feed se o estado for "feed"
+                ) : (
+                    
+         
             <form className="form1">
                 <div className="boxlogon">
                     <div className="divlogon">
@@ -91,7 +107,9 @@ function Register({ toggle }) {
                 </div>
                 <input type="file" name="file" id="file" onChange={ handleFileChange}></input>
             </form>
-        </>
+          
+                )}
+       </>
     )
 };
 

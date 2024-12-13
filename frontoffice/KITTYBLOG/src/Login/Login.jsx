@@ -2,40 +2,35 @@ import React, { useState } from "react";
 import "./Login.css"
 import Register from "./Register";
 import SignIn from "./SignIn";
-export default function Login({toggle}){
+export default function Login(){
 
-    const[logSig , setLogSig] = useState(null);
+    const[view, setView] = useState("Entrance");
 
     function togglePop(tipo){
-        if(tipo === logSig){
-            setLogSig(null);
-        }else{
-            setLogSig(tipo);
-        }
+       if(tipo==="login"){
+        setView("login");
+       }else{
+        setView("register");
+       }
     }
     
 
 return(
     <>
-   
+  
+    <body className="bodyL">
         <div className="boxLogin">
             <div className="divLogin">
                 <h1 className="welcome">KittyBlog</h1>
-                
-              
-
-                <button id="login" type="button" onClick={()=>togglePop("login")} >Login</button >
-        
-                {logSig==="login" &&  <SignIn  toggle = {()=>togglePop("login")} />}
-
+                <button id="login" type="button" onClick={()=>setView("login")} >Login</button >
                 <button id="register" type="button" onClick={()=>togglePop("register")} >Register</button>
-        
-                {logSig==="register" &&  <Register  toggle = {()=>togglePop("register")} />}   
-
-               
+                {view === "Entrance" && <Login />}
+                {view === "login" && <SignIn />}
+                {view === "register" && <Register />}
             </div> 
-
+                
         </div>
+        </body>
     </>
 )
 }
