@@ -1,51 +1,130 @@
-.search{
-    background-color: rgb(255, 233, 210);
-    padding: 0.5%;
-    width: 600px;
-    border: solid 1px rgb(126, 69, 40);
+/* General Styles */
+.navbar {
+    height: 110px;
+    margin: -1%;
     display: flex;
-}
-
-.write{
-    display: flex;
-    width: 600px;
-    
-}
-
-.write button{
-   margin-left: 50%;
-   background-color:rgb(235, 195, 175) ;
-   border: solid 1px rgb(126, 69, 40);
-   color: rgb(95, 51, 29);
-}
-.write button:hover{
-    color: rgb(138, 80, 52);
-    background-color:  rgb(255, 206, 182);
- }
-
-.write input{
-    margin-left: 10px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows items to wrap in smaller screens */
+    padding: 10px 20px;
     background-color: rgb(255, 233, 210);
-    padding: 5px;
-    font-size: 15px;
-    border: none;
-    margin-top: 2px;
 }
-.write input:hover{
-    cursor:text;
-    background-color: rgb(255, 227, 197);
+
+.navbar li {
+    list-style: none;
+    margin: 5px;
+}
+
+.navbar .logo {
+    width: 50px; /* Adjust as needed */
+    height: auto;
+}
+
+ul li {
+    cursor: pointer;
+}
+
+
+#li{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.imgs{
+    width: 20px;
+}
+
+.title{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-style: italic;
 }
 
 .lupa{
-    width: 30px;
+    width: 20px;
 }
 
-.dropdown {
- margin-top: -1px;
- font-size: 18px;
- font-family: Georgia;
- border: solid 0.5px rgb(126, 69, 40);
- width: 610px;
 
- background-color: rgb(235, 195, 175);
+
+.search .write {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+
+.search {
+    position: relative; 
+    display: flex;
+    align-items: center;
+
+}
+
+.write {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.write input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.write button {
+    padding: 5px 10px;
+    background-color: rgb(126, 69, 40);;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.dropdown {
+    position: absolute;
+    top: 125px; 
+    left: 50%; 
+   
+    transform: translateX(-50%); /* Adjust for proper centering */
+    width: 90%; 
+    max-width: 400px; 
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 5px 0; /* Space between suggestions */
+}
+
+/* Dropdown Items */
+.dropdown div {
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown div:hover {
+    background-color: #f0f0f0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .write input {
+        width: 150px; /* Adjust input width for smaller screens */
+    }
+
+    .dropdown {
+        width: 100%; /* Expand dropdown to fit smaller screens */
+    }
 }
