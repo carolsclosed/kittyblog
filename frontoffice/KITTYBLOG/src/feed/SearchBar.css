@@ -1,0 +1,51 @@
+.search{
+    background-color: rgb(255, 233, 210);
+    padding: 0.5%;
+    width: 600px;
+    border: solid 1px rgb(126, 69, 40);
+    display: flex;
+}
+
+.write{
+    display: flex;
+    width: 600px;
+    
+}
+
+.write button{
+   margin-left: 50%;
+   background-color:rgb(235, 195, 175) ;
+   border: solid 1px rgb(126, 69, 40);
+   color: rgb(95, 51, 29);
+}
+.write button:hover{
+    color: rgb(138, 80, 52);
+    background-color:  rgb(255, 206, 182);
+ }
+
+.write input{
+    margin-left: 10px;
+    background-color: rgb(255, 233, 210);
+    padding: 5px;
+    font-size: 15px;
+    border: none;
+    margin-top: 2px;
+}
+.write input:hover{
+    cursor:text;
+    background-color: rgb(255, 227, 197);
+}
+
+.lupa{
+    width: 30px;
+}
+
+.dropdown {
+ margin-top: -1px;
+ font-size: 18px;
+ font-family: Georgia;
+ border: solid 0.5px rgb(126, 69, 40);
+ width: 610px;
+
+ background-color: rgb(235, 195, 175);
+}

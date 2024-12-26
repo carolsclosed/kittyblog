@@ -1,13 +1,12 @@
 import React from 'react'
 import './App.css'
-import Navbar from './NavBar/Navbar'
-import Login from './Login/Login'
-import Feed from './feed/Feed'
+import SearchBar from './feed/SearchBar'
+
 function App() {
 
   return (
     <>
-     <Login/>
+     <SearchBar/>
     </>
   )
 }

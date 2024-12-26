@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css"
+import Login from "./Login";
+import SignIn from "./SignIn";
 function Register({ toggle }) {
 
     const [inputValue, setInputValue] = useState("")
@@ -40,8 +42,8 @@ function Register({ toggle }) {
             });
             if(response.statusText === "OK"){
                 alert("Registo feito com sucesso!")
-                window.location.href = "/feed";
-                setView("feed");
+                window.location.href = "/signin";
+                setView("signin");
             }else if(response.statusText === "Conflict"){
                 alert("Já existe um utilizador com este nome")
             }else{
@@ -82,8 +84,8 @@ function Register({ toggle }) {
 
     return (
         <>
-        { view === "feed" ? (
-                    <Feed /> // Renderiza o componente Feed se o estado for "feed"
+        { view === "signin" ? (
+                    <SignIn /> // Renderiza o componente login se o estado for "lofgin"
                 ) : (
                     
          

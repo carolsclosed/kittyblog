@@ -4,7 +4,7 @@ import Register from "./Register";
 import SignIn from "./SignIn";
 export default function Login(){
 
-    const[view, setView] = useState("Entrance");
+    const[view, setView] = useState("");
 
     function togglePop(tipo){
        if(tipo==="login"){
@@ -24,7 +24,6 @@ return(
                 <h1 className="welcome">KittyBlog</h1>
                 <button id="login" type="button" onClick={()=>setView("login")} >Login</button >
                 <button id="register" type="button" onClick={()=>togglePop("register")} >Register</button>
-                {view === "Entrance" && <Login />}
                 {view === "login" && <SignIn />}
                 {view === "register" && <Register />}
             </div> 

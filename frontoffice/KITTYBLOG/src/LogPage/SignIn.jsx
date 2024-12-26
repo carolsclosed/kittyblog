@@ -42,11 +42,7 @@ function SignIn({ toggle }) {
             }
 
             if(response.statusText=="OK"){
-                window.location.href = "/feed";
-                setView("feed");
-                if(view === "feed"){
-                    
-                }
+          
             }
 
         } catch (error) {
