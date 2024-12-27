@@ -42,8 +42,8 @@ function SearchBar() {
         <ul className="navbar">
             <li ><img src="./src/assets/logo2.jpeg" alt="logo" className="logo" /></li>
             <li id="li" className="title">KITTYBLOG</li>
-            <li id="li">Início</li>
-            <li id="li">Criar</li>
+            <li id="li"><a href="">Home</a></li>
+            <li id="li"><a href="">Create</a></li>
             <li>
             <div className="search">
                 <img  className="lupa" src="./src/assets/lupa.png" alt="lupa" />
@@ -53,7 +53,7 @@ function SearchBar() {
                 </div>
                 </div>
             </li>
-            <li id="li">About Us</li>
+            <li id="li"><a href="">About Us</a></li>
             <li > <img  className="imgs" src="./src/assets/like.png" alt="like" /></li>
             <li > <img  className="imgs" src="./src/assets/gmail.png" alt="like" /></li>
         </ul> 

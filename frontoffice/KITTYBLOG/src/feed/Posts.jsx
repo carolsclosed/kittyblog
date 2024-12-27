@@ -1,10 +1,24 @@
 import React, { useState } from "react";
 import './Posts.css'
-function Feed() {
+
+function Posts(){
     return(
         <>
-        aaaaaaaaaaaaa</>
+       
+        <div id="posts">
+            <div className="blank">
+                
+            </div>
+            <div className="body">
+                <div className="post">
+                    
+                </div>
+            </div>
+            <div className="blank">
+                
+            </div>
+        </div>
+        </>
     )
 }
-
-export default Feed
+export default Posts
