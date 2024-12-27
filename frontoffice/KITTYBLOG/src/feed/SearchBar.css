@@ -1,5 +1,6 @@
 /* General Styles */
 .navbar {
+   
     height: 110px;
     margin: -1%;
     display: flex;
@@ -13,22 +14,15 @@
 .navbar li {
     list-style: none;
     margin: 5px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .navbar .logo {
     width: 50px; /* Adjust as needed */
     height: auto;
 }
-
-ul li {
-    cursor: pointer;
-}
-
-
-#li{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 
 .imgs{
     width: 20px;
@@ -92,8 +86,8 @@ ul li {
 
 .dropdown {
     position: absolute;
-    top: 125px; 
-    left: 50%; 
+    top: 95px; 
+    margin-left: 150px;
    
     transform: translateX(-50%); /* Adjust for proper centering */
     width: 90%; 
@@ -125,6 +119,8 @@ ul li {
     }
 
     .dropdown {
-        width: 100%; /* Expand dropdown to fit smaller screens */
+        width: 90%; /* Expand dropdown to fit smaller screens */
+        margin: 0px !important;
+        left: 250px;
     }
 }

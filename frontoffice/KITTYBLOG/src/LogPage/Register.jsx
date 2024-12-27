@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Routes, Route, Link,useNavigate } from "react-router-dom";
+
 import "./Register.css"
 import Login from "./Login";
 import SignIn from "./SignIn";
@@ -8,8 +10,7 @@ function Register({ toggle }) {
     const [userName, setUsername] = useState("")
     const [passWord, setPassword] = useState("")
     const [imgPerfil, setImgPerfil] = useState("")
-    const [view, setView] = useState("Register")
-
+   
     const [base64String, setBase64String] = useState('');
 
     const handleKeyDown = (e) => {
@@ -41,9 +42,9 @@ function Register({ toggle }) {
                 
             });
             if(response.statusText === "OK"){
+                navigate("/login");
                 alert("Registo feito com sucesso!")
-                window.location.href = "/signin";
-                setView("signin");
+                
             }else if(response.statusText === "Conflict"){
                 alert("Já existe um utilizador com este nome")
             }else{
@@ -84,11 +85,9 @@ function Register({ toggle }) {
 
     return (
         <>
-        { view === "signin" ? (
-                    <SignIn /> // Renderiza o componente login se o estado for "lofgin"
-                ) : (
+ 
                     
-         
+         <div id="bodyR">
             <form className="form1">
                 <div className="boxlogon">
                     <div className="divlogon">
@@ -99,9 +98,10 @@ function Register({ toggle }) {
                        
                         <div className="buttons">
                             <button id="submit1" type="submit" onClick={Submit}>Submit</button>
+                            
+                            <Link to="/">
                             <button id="cancel1">Cancel</button>
-                           
-                            {/*fazer js para detetar o cancelamento de upload*/}
+                            </Link>
                             
 
                         </div>
@@ -109,8 +109,7 @@ function Register({ toggle }) {
                 </div>
                 <input type="file" name="file" id="file" onChange={ handleFileChange}></input>
             </form>
-          
-                )}
+            </div>
        </>
     )
 };

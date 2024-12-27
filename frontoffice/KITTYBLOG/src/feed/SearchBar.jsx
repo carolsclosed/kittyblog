@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Routes, Route, Link,useNavigate } from "react-router-dom";
+
 import './SearchBar.css'
 
 
@@ -37,13 +39,22 @@ function SearchBar() {
         }
     };
 
+
+
     return(
         <>
         <ul className="navbar">
             <li ><img src="./src/assets/logo2.jpeg" alt="logo" className="logo" /></li>
+            
+            <Link to="/">
             <li id="li" className="title">KITTYBLOG</li>
-            <li id="li"><a href="">Home</a></li>
-            <li id="li"><a href="">Create</a></li>
+            </Link>
+            <Link to="/feed">
+            <li id="li">Home</li>
+            </Link>
+            <Link to="/create">
+            <li id="li">Create</li>
+            </Link>
             <li>
             <div className="search">
                 <img  className="lupa" src="./src/assets/lupa.png" alt="lupa" />
@@ -52,21 +63,24 @@ function SearchBar() {
                     <button type="submit">Pesquisar</button>
                 </div>
                 </div>
+                 
+                {data.length !== 0 && <div className="dropdown">{
+                    
+                    data.map((user)=> (
+                        <div  key={user._id} onClick={(e) => setUsername(user.username)}>
+                        <p>@{user.username} </p>
+                        </div>
+                    ))
+                    }
+            </div>}
             </li>
-            <li id="li"><a href="">About Us</a></li>
+            <Link to="/about">
+            <li >About Us</li>
+            </Link>
             <li > <img  className="imgs" src="./src/assets/like.png" alt="like" /></li>
             <li > <img  className="imgs" src="./src/assets/gmail.png" alt="like" /></li>
         </ul> 
-            
-                <div className="dropdown">{
-                    
-                        data.map((user)=> (
-                            <div  key={user._id} onClick={(e) => setUsername(user.username)}>
-                            {user.username} 
-                            </div>
-                        ))
-                        }
-                </div>
+           
        
         
         </>

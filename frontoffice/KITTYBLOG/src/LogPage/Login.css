@@ -36,7 +36,7 @@
 
 
 .divLogin{
-    margin-top: 6vh;
+    margin-top: 4vh;
     display: block;
 
     position: relative;
@@ -96,6 +96,16 @@
    
 }
 
+#submit2{
+    margin-right: 0%;
+    margin-left: 0%;
+}
+
+.buttons2{
+   margin-left: 37%;
+   gap: 10px;
+}
+
 
 #register:hover{
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -105,5 +115,13 @@
 
 }
 
+/* Responsive Adjustments */
+@media (max-width: 1050px) {
 
- 
+    
+    .buttons2{
+       margin-left: 25%;
+       gap: 10px;
+    }
+    
+}

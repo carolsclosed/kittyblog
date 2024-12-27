@@ -58,6 +58,10 @@ app.post('/login', async (req, res) => {//async pq vou usar await -  porem podia
   const { username, password } = req.body;//conteudo da request / payload
   const user = await User.findOne({ username, password }); //existe conta
 
+  if(username==="" && password===""){
+    res.status(401).json({ error: 'Invalid credentials' });
+  }
+
   if (user) {
     const key = jwt.sign({ userId: user._id, username }, SECRET_KEY, { expiresIn: '2 days' });//cria chave(userid e username) que expira em dois dias
     res.json({ key }); ///res - manda por frontoffice, como json
@@ -87,8 +91,22 @@ const verifyToken = (req, res, next) => { //todas as requests passam por aqui(me
 // Get User's Personal Feed - Only User's Posts
 app.get('/feed', verifyToken, async (req, res) => { //verifyToken -> acaba -> next() -> proxima função
   const userId = req.user.userId;//ler id e guardar em userid
-  const posts = await Post.find({ userId }).sort({ createdAt: -1 });// -1 -> os mais recentes no topo || meus posts (procurar na bd userId)
-  res.json(posts);// mandar posts pro frontoffice
+  try {
+    const posts = await Post.find({ userId }).sort({ createdAt: -1 }); // Buscar posts
+
+    // Transformar o formato de createdAt para algo legível
+    const formattedPosts = posts.map(post => ({
+      _id: post._id,
+      content: post.content,
+      username: post.username,
+      createdAt: post.createdAt.toLocaleString('pt-BR', { timeZone: 'UTC' }), // Exemplo: "27/12/2024 12:34:56"
+    }));
+
+    res.json({ posts: formattedPosts }); // Enviar para o front
+  } catch (error) {
+    console.error("Erro ao buscar posts:", error);
+    res.status(500).json({ error: "Erro ao buscar posts" });
+  }
 });
 
 // Update Account Information

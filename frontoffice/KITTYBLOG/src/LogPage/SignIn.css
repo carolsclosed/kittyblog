@@ -1,4 +1,18 @@
-
+.bodyS{
+    height: 120vh;
+    margin: auto;
+    width: 1000vw;
+    position: fixed;
+     top: 0;
+     left: 0;
+    margin-left: -10px;
+    margin-top: -10px;
+    background-image: url("./src/assets/punsheen.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
 
 
 .form2{
@@ -46,6 +60,7 @@
 }
 
 #cancel2{
+    text-decoration: none;
     margin:auto;
     padding: 10px;
     border: none;

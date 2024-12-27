@@ -1,18 +1,32 @@
 .blank{
     background-color: rgb(255, 255, 255);
-    width: 33.3%;
-    
+    width: 23.3%;
+    z-index: -1;
 }
 
-.body{
-    background-color:rgb(255, 243, 230);
-    width: 33.3%;
-    height: 100vh;
-    overflow-y: scroll;
-    margin-top: -8px;
+
+
+.post{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    color: rgb(126, 69, 40);
+    border: 1px solid rgb(126, 69, 40) ;
+    border-style:dashed;
+    position: absolute;
+    top: 119px; 
+    left: 24%; 
+    height:fit-content;
+    background-color: rgb(255, 243, 230);
+    width: 53%; 
+    border-radius: 4px;
+    z-index: -10;
+
+}
+
+.post p{
+    word-wrap: break-word;
 }
 
 #posts{
     display: flex;
-
 }

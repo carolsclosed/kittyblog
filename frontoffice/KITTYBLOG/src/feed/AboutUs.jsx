@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { Routes, Route, Link,useNavigate } from "react-router-dom";
+
 import './AboutUs.css'
 
 function AboutUs(){
     return(
         <>
         <div id="all">
+            <div id="aboutus">
             <div className="box">
                 <h3>Trabalho realizado por:</h3>
             </div>
@@ -19,6 +22,10 @@ function AboutUs(){
             <div  className="emails">
                      <p>aluno25946@ipt.pt</p>
                      <p>aluno25976@ipt.pt</p>
+            </div>
+            <Link to="/feed">
+            <button className="cancel">Go Back</button>
+            </Link>
             </div>
         </div>
         </>
