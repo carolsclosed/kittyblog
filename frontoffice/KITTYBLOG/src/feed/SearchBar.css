@@ -85,18 +85,14 @@
 
 
 .dropdown {
-    position: absolute;
+    position: fixed;
     top: 95px; 
-    margin-left: 150px;
-   
+    margin-top: -23px;
+    margin-left: 125px;
     transform: translateX(-50%); /* Adjust for proper centering */
-    width: 90%; 
+    width: 215px; 
     max-width: 400px; 
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     z-index: 10;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     padding: 5px 0; /* Space between suggestions */
 }
@@ -104,8 +100,12 @@
 /* Dropdown Items */
 .dropdown div {
     padding: 10px;
+    background: white;
     text-align: left;
     cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .dropdown div:hover {
@@ -119,8 +119,14 @@
     }
 
     .dropdown {
-        width: 90%; /* Expand dropdown to fit smaller screens */
-        margin: 0px !important;
+        width: 40%; /* Expand dropdown to fit smaller screens */
+        margin: 0px ;
         left: 250px;
+        margin-top: 15px;
+        margin-left: -105px;
+    }
+    .dropdown div {
+        height: 35px;
+        
     }
 }

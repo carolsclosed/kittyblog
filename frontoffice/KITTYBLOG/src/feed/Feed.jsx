@@ -6,7 +6,7 @@ function Feed() {
     return(
         <>
             <SearchBar></SearchBar>
-            <Posts></Posts>
+
         </>
     )
 }

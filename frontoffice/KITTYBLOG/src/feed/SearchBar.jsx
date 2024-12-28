@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Routes, Route, Link,useNavigate } from "react-router-dom";
-
+import Posts from "./Posts";
 import './SearchBar.css'
 
 
 
 
 function SearchBar() {
-    const [userName, setUsername] = useState("");
-    const [data, setData] = useState([]);
+    const [userName, setUsername] = useState('');
+    const [data, setData] = useState([])
 
     const onChangee = async (e) => {
         e.preventDefault()
@@ -39,7 +39,14 @@ function SearchBar() {
         }
     };
 
+    const handleUserSelect = (user) => {
+        setUsername(user.username); // Atualiza o campo de pesquisa
+        setData([]); // Esconde a lista de sugestões
+      };
 
+      const handleSearch = () => {
+        console.log("Usuário selecionado:", userName); // Apenas para testes
+      };
 
     return(
         <>
@@ -60,19 +67,18 @@ function SearchBar() {
                 <img  className="lupa" src="./src/assets/lupa.png" alt="lupa" />
                 <div className="write" id="write">
                     <input type="text" placeholder="Pesquise um perfil" onChange={onChangee} value={userName}></input>
-                    <button type="submit">Pesquisar</button>
+                    <button type="submit"  onClick={handleSearch}>Pesquisar</button>
                 </div>
                 </div>
-                 
-                {data.length !== 0 && <div className="dropdown">{
-                    
+               <div className="dropdown">{
+                
                     data.map((user)=> (
-                        <div  key={user._id} onClick={(e) => setUsername(user.username)}>
+                        <div  key={user._id}  onClick={() => handleUserSelect(user)}>
                         <p>@{user.username} </p>
                         </div>
                     ))
                     }
-            </div>}
+            </div>
             </li>
             <Link to="/about">
             <li >About Us</li>
@@ -81,7 +87,8 @@ function SearchBar() {
             <li > <img  className="imgs" src="./src/assets/gmail.png" alt="like" /></li>
         </ul> 
            
-       
+        {userName && <Posts username={userName} />}
+
         
         </>
     )
