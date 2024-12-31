@@ -3,10 +3,11 @@ import SearchBar from "./SearchBar";
 import CreatePost from "./CreatePost";
 import Posts from "./Posts";
 function Feed() {
+    const[selectedUserId, setselectedUserId]= useState('')
     return(
         <>
-            <SearchBar></SearchBar>
-
+            <SearchBar setselectedUserId={setselectedUserId}></SearchBar>
+            <Posts selectedUserId={selectedUserId}></Posts>
         </>
     )
 }

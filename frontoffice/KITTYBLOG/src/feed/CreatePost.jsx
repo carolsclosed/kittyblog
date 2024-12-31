@@ -1,18 +1,9 @@
 import React, { useState } from "react";
 import './CreatePost.css'
-import { Routes, Route, Link,useNavigate } from "react-router-dom";
-
-import { use } from "react";
+import {  Link } from "react-router-dom";
 
 function CreatePost(){
     const [Content, setContent] = useState('')
-    const [Error, setError] = useState('')
-    const [Message, setMessage] = useState('')
-    const [posts, setPosts] = useState([]);
-    
-
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -38,7 +29,6 @@ function CreatePost(){
         })
         const data = await response.json()
           setMessage(data.message);
-          setPosts([...posts, Content]); // Add the new post to the state
           setContent(''); // Clear input after submission
           alert('Post Published Successfully')
         } catch (err) {
@@ -65,16 +55,6 @@ function CreatePost(){
                 />
                  <button className="button" onClick={handleSubmit}  >Publish</button>
              </form>
-             
- {/*            <div className="posts">
-                <h3>Your Posts</h3>
-
-                {posts.map((post) => (
-                <div key={post._id}>
-                    <h4>{post.username}</h4>
-                    <p>{post.content}</p>
-                </div>
-        ))} </div>*/}
       </div>
         </div>
         

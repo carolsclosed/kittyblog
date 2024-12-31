@@ -90,7 +90,7 @@ const verifyToken = (req, res, next) => { //todas as requests passam por aqui(me
 
 // Get User's Personal Feed - Only User's Posts
 app.get('/feed', verifyToken, async (req, res) => { //verifyToken -> acaba -> next() -> proxima função
-  const userId = req.user.userId;//ler id e guardar em userid
+  const userId = req.user.userId;//ler id e guardar em userid  
   try {
     const posts = await Post.find({ userId }).sort({ createdAt: -1 }); // Buscar posts
 
@@ -138,8 +138,32 @@ app.post('/find/users', async (req, res) => {//verifyToken -> acaba -> next() ->
 // Get Feed of a Specific User
 app.post('/find/user/feed', verifyToken, async (req, res) => {//verifyToken -> acaba -> next() -> proxima função
   const { userId } = req.body;//payload
-  const posts = await Post.find({ userId }).sort({ createdAt: -1 });// -1 -> os mais recentes no topo || posts do user (procurar na bd userId)
-  res.json(posts);//mandar posts para o frontoffice
+  //check if valid bson id
+  if(
+  !mongoose.isValidObjectId(userId)
+  ){
+    res.status(500).json({ error: "Erro ao buscar posts" });
+    return;
+  }
+  const posts = await Post.find({ userId }).sort({ createdAt: -1 }); // Buscar posts
+  res.json(posts); // Enviar para o front
+/*
+  try {
+    const posts = await Post.find({ userId }).sort({ createdAt: -1 }); // Buscar posts
+
+    // Transformar o formato de createdAt para algo legível
+    const formattedPosts = posts.map(post => ({
+      _id: post._id,
+      content: post.content,
+      username: post.username,
+      createdAt: post.createdAt.toLocaleString('pt-BR', { timeZone: 'UTC' }), // Exemplo: "27/12/2024 12:34:56"
+    }));
+
+    
+  } catch (error) {
+    console.error("Erro ao buscar posts:", error);
+    res.status(500).json({ error: "Erro ao buscar posts" });
+  }*/
 });
 
 // Comment on a Post

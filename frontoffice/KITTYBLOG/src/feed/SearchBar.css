@@ -9,6 +9,7 @@
     flex-wrap: wrap; /* Allows items to wrap in smaller screens */
     padding: 10px 20px;
     background-color: rgb(255, 233, 210);
+    border: 1px solid rgb(126, 69, 40);
 }
 
 .navbar li {

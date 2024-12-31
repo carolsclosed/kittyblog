@@ -6,9 +6,10 @@ import './SearchBar.css'
 
 
 
-function SearchBar() {
+function SearchBar({setselectedUserId}) {
     const [userName, setUsername] = useState('');
     const [data, setData] = useState([])
+    const [userid, setUserid] = useState('')
 
     const onChangee = async (e) => {
         e.preventDefault()
@@ -41,12 +42,11 @@ function SearchBar() {
 
     const handleUserSelect = (user) => {
         setUsername(user.username); // Atualiza o campo de pesquisa
+        setUserid(user._id)
+        setselectedUserId(user._id)
         setData([]); // Esconde a lista de sugestões
       };
 
-      const handleSearch = () => {
-        console.log("Usuário selecionado:", userName); // Apenas para testes
-      };
 
     return(
         <>
@@ -67,7 +67,7 @@ function SearchBar() {
                 <img  className="lupa" src="./src/assets/lupa.png" alt="lupa" />
                 <div className="write" id="write">
                     <input type="text" placeholder="Pesquise um perfil" onChange={onChangee} value={userName}></input>
-                    <button type="submit"  onClick={handleSearch}>Pesquisar</button>
+                    <button type="submit"  >Pesquisar</button>
                 </div>
                 </div>
                <div className="dropdown">{
@@ -87,7 +87,6 @@ function SearchBar() {
             <li > <img  className="imgs" src="./src/assets/gmail.png" alt="like" /></li>
         </ul> 
            
-        {userName && <Posts username={userName} />}
 
         
         </>
