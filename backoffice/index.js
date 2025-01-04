@@ -1,18 +1,18 @@
-const express = require('express');//biblioteca necessaria para ajudar na cracao de api's
+const express = require('express');//biblioteca necessaria para ajudar na criacao de api's
 const cors = require('cors');
-const jwt = require('jsonwebtoken');// biblioteca PARA criar jwt (chave)
+const jwt = require('jsonwebtoken');// biblioteca PARA criar token
 const mongoose = require('mongoose'); // biblioteca para conectar a base de dados
 
 const app = express();//iniciar biblioteca da api
-const port = 3001; // porta da api (comunicacao entre offices)
+const port = 3002; // porta da api (comunicacao entre offices)
 const SECRET_KEY = '17821h12871h2';//key
 
-
+//configurações iniciais
 app.use(cors({ "origin": '*', "Access-Control-Allow-Origin": "*" }));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-// Connect to MongoDB -  vi na config da mongodb
+// configuração da mongodb
 mongoose.connect('mongodb://localhost:27017/kittydatabase', {
       useNewUrlParser: true,
       useUnifiedTopology: true
@@ -21,15 +21,18 @@ mongoose.connect('mongodb://localhost:27017/kittydatabase', {
     }).catch((err) => {
       console.error('Erro ao conectar ao MongoDB', err);
     });
-// Modelos da base de daos (tabelas)
+
+
+// Modelos da base de dados (tabelas)
+//tabela user
 const UserSchema = new mongoose.Schema({
   username: String,
   password: String,
   imagemPerfil: String,
 });
-
+//tabela posts
 const PostSchema = new mongoose.Schema({
-  userId: mongoose.Schema.Types.ObjectId, // "foreign key do user" 
+  userId: mongoose.Schema.Types.ObjectId, 
   username: String,
   content: String,
   imagem: String,
@@ -40,7 +43,7 @@ const PostSchema = new mongoose.Schema({
 const User = mongoose.model('User', UserSchema);//chamar tabela user
 const Post = mongoose.model('Post', PostSchema);//chamar tabela post
 
-// Registration Endpoint
+// Registro Endpoint
 app.post('/register', async (req, res) => { //async pq vou usar await -  porem podia usar then
   const { username, password, imagemPerfil } = req.body;//conteudo da request / payload
   const existingUser = await User.findOne({ username });//pra ver se tem igual
@@ -89,7 +92,7 @@ const verifyToken = (req, res, next) => { //todas as requests passam por aqui(me
   });
 };
 
-// Get User's Personal Feed - Only User's Posts
+//meus posts
 app.get('/feed', verifyToken, async (req, res) => { //verifyToken -> acaba -> next() -> proxima função
   const userId = req.user.userId;//ler id e guardar em userid  
   try {
@@ -115,14 +118,8 @@ app.get('/feed', verifyToken, async (req, res) => { //verifyToken -> acaba -> ne
   }
 });
 
-// Update Account Information
-app.put('/update/account', verifyToken, async (req, res) => {//verifyToken -> acaba -> next() -> proxima função
-  const { username, password, imagemPerfil } = req.body;//payload
-  await User.updateOne({ _id: req.user.userId }, { username, password, imagemPerfil });//update (quem e o que)
-  res.json({ message: 'Account updated successfully' });//mandar pro frontoffice
-});
 
-// Create Post
+// criar Post
 app.post('/create/post', verifyToken, async (req, res) => {////verifyToken -> acaba -> next() -> proxima função
   const { content, imagem } = req.body;//payload
   const post = new Post({
@@ -135,17 +132,17 @@ app.post('/create/post', verifyToken, async (req, res) => {////verifyToken -> ac
   res.json({ message: 'Post created successfully', post });//mandar para o frontoffice msg e post
 });
 
-// Find Users by Username
+// procurar users pelo username
 app.post('/find/users', async (req, res) => {//verifyToken -> acaba -> next() -> proxima função
   const { username } = req.body;//payload
   const users = await User.find({ username: new RegExp(`^${username}`, 'i') });//username -> na pesquia procura usernames com esses caracteres || i-> faz com que seja case insensitive
   res.json(users);//mandar users para frontoffice
 });
 
-// Get Feed of a Specific User
+// feed de alguem
 app.post('/find/user/feed', verifyToken, async (req, res) => {//verifyToken -> acaba -> next() -> proxima função
   const { userId } = req.body;//payload
-  //check if valid bson id
+  //verificar se existe
   if(
   !mongoose.isValidObjectId(userId)
   ){
@@ -163,46 +160,15 @@ app.post('/find/user/feed', verifyToken, async (req, res) => {//verifyToken -> a
       createdAt: post.createdAt.toLocaleString('pt-BR', { timeZone: 'UTC' }), // Exemplo: "27/12/2024 12:34:56"
     }));
 
-  // Pegar foto do perfil
+  // buscar foto do perfil
   const user = await User.findById(userId);
   const imagemPerfil = user.imagemPerfil;
 
 
   res.json({posts: formattedPosts, fotoPerfil: imagemPerfil}); // Enviar para o front
-/*
-  try {
-    const posts = await Post.find({ userId }).sort({ createdAt: -1 }); // Buscar posts
-
-    // Transformar o formato de createdAt para algo legível
-    const formattedPosts = posts.map(post => ({
-      _id: post._id,
-      content: post.content,
-      username: post.username,
-      createdAt: post.createdAt.toLocaleString('pt-BR', { timeZone: 'UTC' }), // Exemplo: "27/12/2024 12:34:56"
-    }));
-
-    
-  } catch (error) {
-    console.error("Erro ao buscar posts:", error);
-    res.status(500).json({ error: "Erro ao buscar posts" });
-  }*/
 });
 
-// Comment on a Post
-app.post('/create/post/comment', verifyToken, async (req, res) => {//verifyToken -> acaba -> next() -> proxima função
-  const { postId, comment } = req.body;//payload
-  const post = await Post.findById(postId);//encontrar post a comentar
-
-  if (!post) {// se n existir
-    return res.status(404).json({ error: 'Post not found' });
-  }
-
-  post.comments.push({ username: req.user.username, comment });//to a dar o meu username e a comentar
-  await post.save();//guardar na bd
-  res.json({ message: 'Comment added successfully', post });//mandar para o frontoffice msg e post
-});
-
-// Start the API
+// start api
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
