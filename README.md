@@ -1,5 +1,9 @@
 This is a kitty project made by a kitty :)
 
+Como configurar:
+1. npm i
+2. npm run dev
+
 
 Iniciar mongodb docker:
 
