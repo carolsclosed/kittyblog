@@ -1,43 +1,53 @@
 .box {
-    border: 1px solid rgb(126, 69, 40) ;
+    border: 1px solid rgb(126, 69, 40);
     display: flex;
-    justify-content:center ;
+    justify-content: center;
     background-color: rgb(255, 233, 210);
-    padding: 5px;
-    width: 849px;
+    width: 356px;
+    margin-left: -1px;
+    margin-top: -10px;
+    border-radius: 10px;
 }
 
-#aboutus{
-    background-color: rgb(255, 233, 210);
-    border: 1px solid rgb(126, 69, 40) ;
-    width: 860px;
-    margin-top: 0.5%;
-    margin-left: 3%;
+.boxii {
+    position: fixed;
+    left: calc(50vw - 180px);
+    top: 15%;
+
 }
 
-.cancel{
+#aboutus {
+    border: 1px solid rgb(126, 69, 40);
+    background-color: rgb(255, 233, 210);
+    position: absolute;
+    width: 356px;
+    border-radius: 10px;
+}
+
+.cancel {
     margin: 1%;
     padding: 10px 15px;
     background-color: rgb(126, 69, 40);
     color: white;
     border: none;
     border-radius: 4px;
-    margin-left:47%;
+    margin-left: 40%;
 }
-.cancel:hover{
-    
+
+.cancel:hover {
+
     background-color: rgb(141, 83, 54);
     cursor: pointer;
 }
 
-#all{
-    background-color: rgba(248,234,221,255);
+#all {
+    background-color: rgba(248, 234, 221, 255);
     height: 120vh;
     margin: auto;
     width: 1000vw;
     position: fixed;
-     top: 0;
-     left: 0;
+    top: 0;
+    left: 0;
     margin-left: -10px;
     margin-top: -10px;
     background-size: cover;
@@ -46,7 +56,7 @@
     background-position: center;
 }
 
-.box h3{
+.box h3 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: italic;
     color: rgb(126, 69, 40);
@@ -55,81 +65,23 @@
 
 
 .pessoas {
-   
-    display: flex;
-    justify-content:center ;
-    gap: 15px;
+    margin-left: 87px;
+    display: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    color: rgb(126, 69, 40);
     background-color: rgb(255, 233, 210);
     padding: 30px;
-    width: 800px;
+    width: 150px;
 }
 
-.nomes {
-    display: flex;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-style: italic;
-    color: rgb(126, 69, 40);
-    justify-content:center ;
-    gap: 345px;
-    background-color: rgb(255, 233, 210);
-    padding: 5px;
-    width: 850px;
-}
 
-.emails {
-    display: flex;
-    justify-content:center ;
-    gap: 330px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-style: italic;
-    color: rgb(126, 69, 40);
-    background-color: rgb(255, 233, 210);
-    padding: 5px;
-    width: 850px;
-}
 
-.foto{
+
+.foto {
+    margin-left: -35px;
     border-radius: 6%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    height: 400px;
+    width: 200px;
     border: 1px solid rgb(126, 69, 40);
-}
-
-@media (max-width: 768px) {
-    #aboutus{
-        width: 480px;
-        margin-left: 0.4%;
-        margin-top: 3%;
-    }
-
-    .box {
-        width: 97.4%; /* Expand dropdown to fit smaller screens */
-       
-    }
-
-    .cancel{
-        margin-left:42%;
-    }
-
-    .foto {
-        height: 20vh;
-    }
-    .emails {
-       font-size:small;
-       padding: 0%;
-       width: 480px;
-       gap: 35%;
-    }
-    .nomes {
-        font-size:small;
-        padding: 0%;
-        width: 480px;
-        gap: 40%;
-    }
-    .pessoas {
-      padding: 2%;
-       width:460px;
-       gap: 23%;
-    }
 }

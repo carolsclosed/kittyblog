@@ -9,7 +9,7 @@
     height: 30px;
     object-fit: cover;
     border-radius: 100px;
-    border: 1px solid black;
+    border: 1px solid rgb(126, 69, 40);
     position: absolute;
     margin-top: 15px;
 }
@@ -35,6 +35,11 @@
 
 .post p {
     word-wrap: break-word;
+}
+
+.post h3 {
+    word-wrap: break-word;
+
 }
 
 #posts {

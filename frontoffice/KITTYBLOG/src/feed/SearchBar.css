@@ -1,12 +1,13 @@
 /* General Styles */
 .navbar {
-   
+
     height: 110px;
     margin: -1%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allows items to wrap in smaller screens */
+    flex-wrap: wrap;
+    /* Allows items to wrap in smaller screens */
     padding: 10px 20px;
     background-color: rgb(255, 233, 210);
     border: 1px solid rgb(126, 69, 40);
@@ -21,21 +22,22 @@
 }
 
 .navbar .logo {
-    width: 50px; /* Adjust as needed */
+    width: 50px;
+    /* Adjust as needed */
     height: auto;
 }
 
-.imgs{
+.imgs {
     width: 20px;
 }
 
-.title{
+.title {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     font-style: italic;
 }
 
-.lupa{
+.lupa {
     width: 20px;
 }
 
@@ -56,7 +58,7 @@
 
 
 .search {
-    position: relative; 
+    position: relative;
     display: flex;
     align-items: center;
 
@@ -87,15 +89,17 @@
 
 .dropdown {
     position: fixed;
-    top: 95px; 
+    top: 95px;
     margin-top: -23px;
     margin-left: 125px;
-    transform: translateX(-50%); /* Adjust for proper centering */
-    width: 215px; 
-    max-width: 400px; 
+    transform: translateX(-50%);
+    /* Adjust for proper centering */
+    width: 215px;
+    max-width: 400px;
     z-index: 10;
     overflow: hidden;
-    padding: 5px 0; /* Space between suggestions */
+    padding: 5px 0;
+    /* Space between suggestions */
 }
 
 /* Dropdown Items */
@@ -116,18 +120,21 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .write input {
-        width: 150px; /* Adjust input width for smaller screens */
+        width: 150px;
+        /* Adjust input width for smaller screens */
     }
 
     .dropdown {
-        width: 40%; /* Expand dropdown to fit smaller screens */
-        margin: 0px ;
+        width: 40%;
+        /* Expand dropdown to fit smaller screens */
+        margin: 0px;
         left: 250px;
         margin-top: 15px;
         margin-left: -105px;
     }
+
     .dropdown div {
         height: 35px;
-        
+
     }
 }

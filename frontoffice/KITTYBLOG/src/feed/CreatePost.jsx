@@ -54,6 +54,7 @@ function CreatePost() {
       })
       setContent(''); // Clear input after submission
       alert('Post Published Successfully')
+
     } catch (err) {
       console.log(err)
       alert('Failed to create post. Please try again.');

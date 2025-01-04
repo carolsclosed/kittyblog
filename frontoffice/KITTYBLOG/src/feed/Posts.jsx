@@ -92,9 +92,10 @@ function Posts({ selectedUserId }) {
                                         fontSize: "14px",
                                         position: "absolute", right: "10px", top: "5px"
                                     }}>
-                                        {post.createdAt}
+
                                     </div>
                                 </h3>
+                                <p>{post.createdAt}</p>
                                 <p> {post.content}
                                 </p>
                                 <div className="imagem-posts">
