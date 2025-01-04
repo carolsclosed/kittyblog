@@ -7,5 +7,5 @@ Iniciar mongodb docker:
 2. docker run -d -p 27017:27017 --name my-mongo-container my-mongo-image
 
 Depois, no projeto:
-.\backoffice\ -> npm run dev
- .\frontoffice\KITTYBLOG -> npm run dev
+1. .\backoffice\ -> npm run dev 
+2. .\frontoffice\KITTYBLOG -> npm run dev
