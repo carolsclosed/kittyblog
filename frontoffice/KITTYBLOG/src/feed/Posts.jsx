@@ -99,7 +99,7 @@ function Posts({ selectedUserId }) {
                                 <p> {post.content}
                                 </p>
                                 <div className="imagem-posts">
-                                    {post.imagem && <img src={post.imagem} style={{ width: "100px", height: "100px" }} />}
+                                    {post.imagem && <img src={post.imagem} classname="imgpost" style={{ width: "100px", height: "100px" }} />}
                                 </div>
 
                             </div>
