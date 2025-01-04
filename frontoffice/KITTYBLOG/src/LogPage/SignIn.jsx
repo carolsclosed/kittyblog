@@ -1,12 +1,9 @@
-import { Routes, Route, Link,useNavigate } from "react-router-dom";
+import {  Link,useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import "./SignIn.css"
-import Feed from "../feed/Feed";
-import Login from "./Login";
-function SignIn({ toggle }) {
+function SignIn() {
 
 
-    const [inputValue, setInputValue] = useState("")
     const [userName, setUsername] = useState("")
     const navigate = useNavigate();
     const [passWord, setPassword] = useState("")
@@ -14,7 +11,6 @@ function SignIn({ toggle }) {
     function handleKeyDown(e) {
         if (e.key === "Enter") {
             e.preventDefault();
-            console.log("Enter key pressed: ", inputValue);
             // depois colocar para enviar para a bd
         }
     }
@@ -61,7 +57,7 @@ function SignIn({ toggle }) {
                         <div className="divSignIn">
                             <h1 className="TEXT">Login</h1>
                             <input className="user"value={userName} onChange={(e)=>setUsername(e.target.value)} type="text" onKeyDown={handleKeyDown} placeholder="Username" />
-                            <input className="pass" value={passWord} onChange={(e)=>setPassword(e.target.value)}  type="text" onKeyDown={handleKeyDown} placeholder="Password" />
+                            <input className="pass"type="password" value={passWord} onChange={(e)=>setPassword(e.target.value)}  onKeyDown={handleKeyDown} placeholder="Password" />
                             <div className="buttons2">
                             <Link to="/">
                                 <button id="cancel2">Cancel</button>

@@ -1,50 +1,59 @@
-#allBody{
+#allBody {
     height: 120vh;
     margin: auto;
     width: 1000vw;
     position: fixed;
-     top: 0;
-     left: 0;
+    top: 0;
+    left: 0;
     margin-left: -10px;
     margin-top: -10px;
-    background-image: url("./src/assets/punsheen.png");
+    background-color: antiquewhite;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
 }
 
-#Criar{
+.imagem-post {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    right: calc(50vw - 60px);
+    bottom: 20vh;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid rgb(126, 69, 40);
+}
+
+#Criar {
     padding: 20px;
     position: fixed;
     display: block;
-    min-width: 250px;
+    width: 250px;
     min-height: 275px;
-    width: 30vw;
-    max-height: 260px;
-    left: 38%;
-    top: 20%;
-    margin-left: -3vw;
-    border-radius:10vh;
+    left: calc(50vw - 140px);
+    top: 10%;
+    border-radius: 60px;
     text-align: center;
     background-color: rgb(255, 233, 210);
     border: 2px solid rgb(126, 69, 40);
 }
-.form{
+
+.form {
     display: grid;
 }
 
-.posts{
-    border: 1px solid rgb(126, 69, 40) ;
+.posts {
+    border: 1px solid rgb(126, 69, 40);
     border-radius: 4%;
     display: column;
-    align-items:center;
+    align-items: center;
     margin-top: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    
+
 }
 
-.button2{
+.button2 {
     background-color: rgb(126, 69, 40);
     color: antiquewhite;
     padding: 7px;
@@ -55,16 +64,17 @@
 
 }
 
-.button2:hover{
-    background-color: rgb(150, 92, 64);
-    cursor: pointer;
-}
-.button:hover{
+.button2:hover {
     background-color: rgb(150, 92, 64);
     cursor: pointer;
 }
 
-.button{
+.button:hover {
+    background-color: rgb(150, 92, 64);
+    cursor: pointer;
+}
+
+.button {
     background-color: rgb(126, 69, 40);
     color: antiquewhite;
     padding: 7px;
@@ -77,19 +87,18 @@
     font-style: italic;
 }
 
-.textarea{
+.textarea {
     height: 160px;
     margin-top: 20px;
     border-radius: 4%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.posts h3{
+.posts h3 {
     margin-top: 80px;
     margin-left: 5%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: italic;
     color: rgb(126, 69, 40);
-    
-}
 
+}

@@ -32,6 +32,7 @@ const PostSchema = new mongoose.Schema({
   userId: mongoose.Schema.Types.ObjectId, // "foreign key do user" 
   username: String,
   content: String,
+  imagem: String,
   comments: [{ username: String, comment: String , userId: mongoose.Schema.Types.ObjectId}],
   createdAt: { type: Date, default: Date.now },
 });
@@ -98,11 +99,16 @@ app.get('/feed', verifyToken, async (req, res) => { //verifyToken -> acaba -> ne
     const formattedPosts = posts.map(post => ({
       _id: post._id,
       content: post.content,
+      imagem: post.imagem,
       username: post.username,
       createdAt: post.createdAt.toLocaleString('pt-BR', { timeZone: 'UTC' }), // Exemplo: "27/12/2024 12:34:56"
     }));
 
-    res.json({ posts: formattedPosts }); // Enviar para o front
+    // Foto do perfil
+    const user = await User.findById(userId);
+    const imagemPerfil = user.imagemPerfil;
+
+    res.json({ posts: formattedPosts, fotoPerfil: imagemPerfil}); // Enviar para o front
   } catch (error) {
     console.error("Erro ao buscar posts:", error);
     res.status(500).json({ error: "Erro ao buscar posts" });
@@ -118,11 +124,12 @@ app.put('/update/account', verifyToken, async (req, res) => {//verifyToken -> ac
 
 // Create Post
 app.post('/create/post', verifyToken, async (req, res) => {////verifyToken -> acaba -> next() -> proxima função
-  const { content } = req.body;//payload
+  const { content, imagem } = req.body;//payload
   const post = new Post({
     userId: req.user.userId,
     username: req.user.username,
     content,
+    imagem,
   });// criar post
   await post.save();// guardar na bd
   res.json({ message: 'Post created successfully', post });//mandar para o frontoffice msg e post
@@ -146,7 +153,22 @@ app.post('/find/user/feed', verifyToken, async (req, res) => {//verifyToken -> a
     return;
   }
   const posts = await Post.find({ userId }).sort({ createdAt: -1 }); // Buscar posts
-  res.json(posts); // Enviar para o front
+
+    // Transformar o formato de createdAt para algo legível
+    const formattedPosts = posts.map(post => ({
+      _id: post._id,
+      content: post.content,
+      imagem: post.imagem,
+      username: post.username,
+      createdAt: post.createdAt.toLocaleString('pt-BR', { timeZone: 'UTC' }), // Exemplo: "27/12/2024 12:34:56"
+    }));
+
+  // Pegar foto do perfil
+  const user = await User.findById(userId);
+  const imagemPerfil = user.imagemPerfil;
+
+
+  res.json({posts: formattedPosts, fotoPerfil: imagemPerfil}); // Enviar para o front
 /*
   try {
     const posts = await Post.find({ userId }).sort({ createdAt: -1 }); // Buscar posts

@@ -1,32 +1,42 @@
-.blank{
+.blank {
     background-color: rgb(255, 255, 255);
     width: 23.3%;
     z-index: -1;
 }
 
+.imagem-perfil {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 100px;
+    border: 1px solid black;
+    position: absolute;
+    margin-top: 15px;
+}
 
 
-.post{
+
+.post {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: italic;
     color: rgb(126, 69, 40);
-    border: 1px solid rgb(126, 69, 40) ;
-    border-style:dashed;
+    border: 1px solid rgb(126, 69, 40);
+    border-style: dashed;
     position: absolute;
-    top: 120px; 
-    left: 24%; 
-    height:fit-content;
+    top: 120px;
+    left: 24%;
+    height: fit-content;
     background-color: rgb(255, 243, 230);
-    width: 53%; 
+    width: 53%;
     border-radius: 4px;
     z-index: -10;
 
 }
 
-.post p{
+.post p {
     word-wrap: break-word;
 }
 
-#posts{
+#posts {
     display: flex;
 }

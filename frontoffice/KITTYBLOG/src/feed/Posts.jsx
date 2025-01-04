@@ -3,6 +3,7 @@ import './Posts.css'
 
 function Posts({ selectedUserId }) {
     const [posts, setPosts] = useState([]);
+    const [fotoPerfil, setFotoPerfil] = useState("")
 
 
     const fetchPosts = async () => {
@@ -21,6 +22,7 @@ function Posts({ selectedUserId }) {
 
             const dataRes = await response.json();
             setPosts(dataRes.posts);
+            setFotoPerfil(dataRes.fotoPerfil)
 
 
         } catch (error) {
@@ -42,7 +44,8 @@ function Posts({ selectedUserId }) {
             });
             const dataRes = await response.json();
             if (!dataRes.error) {
-                setPosts(dataRes);
+                setPosts(dataRes.posts);
+                setFotoPerfil(dataRes.fotoPerfil)
             }
         } catch (error) {
             console.error("Erro no fetch: ", error);
@@ -76,11 +79,28 @@ function Posts({ selectedUserId }) {
                     <div className="post">{
                         posts.map((post) => (
 
-                            <div key={post._id}>
-                                <p>_______________________________________</p>
-                                <h3> @{post.username}:</h3>
-                                <p> "{post.content}"</p>
-                                <h5> Data e Hora: {post.createdAt}</h5>
+                            <div key={post._id} style={{ paddingLeft: "10px", borderTop: "1px solid black", position: "relative" }}>
+                                {fotoPerfil !== "" && <img
+                                    src={fotoPerfil}
+                                    alt="Preview da Imagem de Perfil"
+                                    className="imagem-perfil"
+                                />}
+                                <h3 style={{ marginLeft: "40px", position: "relative" }}>
+
+                                    @{post.username}:
+                                    <div style={{
+                                        fontSize: "14px",
+                                        position: "absolute", right: "10px", top: "5px"
+                                    }}>
+                                        {post.createdAt}
+                                    </div>
+                                </h3>
+                                <p> {post.content}
+                                </p>
+                                <div className="imagem-posts">
+                                    {post.imagem && <img src={post.imagem} style={{ width: "100px", height: "100px" }} />}
+                                </div>
+
                             </div>
                         ))}
                     </div>
