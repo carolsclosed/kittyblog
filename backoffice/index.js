@@ -133,8 +133,7 @@ app.post('/create/post', verifyToken, async (req, res) => {////verifyToken -> ac
 });
 
 // procurar users pelo username
-app.post('/find/users', async (req, res) => {//verifyToken -> acaba -> next() -> proxima função
-  const { username } = req.body;//payload
+app.post('/find/users', async (req, res) => {
   const users = await User.find({ username: new RegExp(`^${username}`, 'i') });//username -> na pesquia procura usernames com esses caracteres || i-> faz com que seja case insensitive
   res.json(users);//mandar users para frontoffice
 });
