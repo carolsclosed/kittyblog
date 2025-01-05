@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');// biblioteca PARA criar token
 const mongoose = require('mongoose'); // biblioteca para conectar a base de dados
 
 const app = express();//iniciar biblioteca da api
-const port = 3002; // porta da api (comunicacao entre offices)
+const port = 3001; // porta da api (comunicacao entre offices)
 const SECRET_KEY = '17821h12871h2';//key
 
 //configurações iniciais

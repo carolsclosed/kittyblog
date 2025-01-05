@@ -39,7 +39,7 @@ function CreatePost() {
     }
 
     try {
-      await fetch("http://localhost:3002/create/post", {
+      await fetch("http://localhost:3001/create/post", {
 
         method: 'POST',
         headers: {

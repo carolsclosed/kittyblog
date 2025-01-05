@@ -10,7 +10,7 @@ function Posts({ selectedUserId }) {
 
         try {
             const token = localStorage.getItem('authToken');
-            const response = await fetch("http://localhost:3002/feed", {
+            const response = await fetch("http://localhost:3001/feed", {
 
                 method: 'GET',
                 headers: {
@@ -34,7 +34,7 @@ function Posts({ selectedUserId }) {
 
         const token = localStorage.getItem('authToken');
         try {
-            const response = await fetch("http://localhost:3002/find/user/feed", {
+            const response = await fetch("http://localhost:3001/find/user/feed", {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",

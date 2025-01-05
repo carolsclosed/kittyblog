@@ -19,7 +19,7 @@ function SearchBar({ setselectedUserId }) {
                 setData([])
                 return;
             }
-            const response = await fetch("http://localhost:3002/find/users", {
+            const response = await fetch("http://localhost:3001/find/users", {
 
                 method: 'POST',
                 headers: {
